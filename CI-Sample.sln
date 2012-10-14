@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI Sample", "CI Sample\CI Sample.csproj", "{A8EF126F-25B1-4E6C-A142-90C678134326}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI-Sample", "CI-Sample\CI-Sample.csproj", "{A8EF126F-25B1-4E6C-A142-90C678134326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI Sample.Test", "CI Sample.Test\CI Sample.Test.csproj", "{9E510CE1-4B31-47C1-B27C-D553EE927C11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI-Sample.Test", "CI-Sample.Test\CI-Sample.Test.csproj", "{9E510CE1-4B31-47C1-B27C-D553EE927C11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

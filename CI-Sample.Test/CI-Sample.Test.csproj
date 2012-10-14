@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CI_Sample.Test</RootNamespace>
-    <AssemblyName>CI Sample.Test</AssemblyName>
+    <AssemblyName>CI-Sample.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CI Sample\CI Sample.csproj">
+    <ProjectReference Include="..\CI-Sample\CI-Sample.csproj">
       <Project>{a8ef126f-25b1-4e6c-a142-90c678134326}</Project>
       <Name>CI Sample</Name>
     </ProjectReference>
