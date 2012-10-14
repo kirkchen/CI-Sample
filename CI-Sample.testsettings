@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="CI-Sample" id="95bd1340-cad8-4866-bc04-b410fe53d1bf" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>這些是本機測試回合的預設測試設定。</Description>
+<<<<<<< HEAD
   <Deployment>
     <DeploymentItem filename="CI-Sample\bin\Debug\CI-Sample.dll" />
   </Deployment>
+=======
+  <Deployment enabled="false" />
+>>>>>>> 50326d2bf250aa8ca7809fa2f023c2538da5627c
   <NamingScheme baseName="TestResult" appendTimeStamp="false" useDefault="false" />
   <Execution>
     <TestTypeSpecific>
