@@ -7,6 +7,8 @@ namespace CI_Sample
 {
     public class PriceDiscountService
     {
+        private System.Threading.ManualResetEvent locker = new System.Threading.ManualResetEvent(false);
+
         public double Calculate(double totalPrice)
         {
             if (totalPrice > 100)
