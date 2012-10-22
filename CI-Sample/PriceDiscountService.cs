@@ -22,5 +22,19 @@ namespace CI_Sample
 
             return totalPrice * 0.9d;
         }
+
+        public double DiscountCalculate(double totalPrice)
+        {
+            if (totalPrice > 80)
+            {
+                return totalPrice * 0.7d;
+            }
+            else if (totalPrice < 20)
+            {
+                return totalPrice;
+            }
+
+            return totalPrice * 0.9d;
+        }
     }
 }
