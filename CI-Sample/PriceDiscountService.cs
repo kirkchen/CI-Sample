@@ -23,7 +23,7 @@ namespace CI_Sample
             return totalPrice * 0.9d;
         }
 
-        public double DiscountCalculate(double totalPrice)
+        public double DuplicateCalculate(double totalPrice)
         {
             if (totalPrice > 100)
             {
