@@ -1,0 +1,46 @@
+﻿@model CI_Sample.WebSite.Models.CalculateViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>折扣計算器</h2>
+<fieldset>
+    <legend>請輸入總價, 計算打折後的金額</legend>
+
+    <div class="editor-label">
+        <label for="TotalPrice">總價:</label>
+    </div>
+    <div class="editor-field">
+        <input type="text" id="TotalPrice" data-bind="value: TotalPrice" />
+    </div>
+    <p>
+        <input type="button" value="計算折扣" data-bind="click: CalculateDiscountPrice" />
+    </p>
+</fieldset>
+<fieldset>
+    <legend>打折後的金額</legend>
+    <div class="editor-label">
+        <span data-bind="text: DiscountPrice"></span>元
+    </div>
+</fieldset>
+
+<script type="text/javascript">
+    var appViewModel = {
+        TotalPrice: ko.observable(0),
+        DiscountPrice: ko.observable(0),
+        CalculateDiscountPrice: function () {
+            var self = this;
+            $.ajax({
+                url: "/Calculate/CalculateDiscount",
+                type: "POST",
+                data: { totalPrice: this.TotalPrice() },
+                success: function (response) {
+                    self.DiscountPrice(response.DiscountPrice);
+                }
+            });
+        }
+    }
+
+    ko.applyBindings(appViewModel);
+</script>

@@ -5,10 +5,8 @@ using System.Text;
 
 namespace CI_Sample
 {
-    public class PriceDiscountService
+    public class PriceDiscountService : IPriceDiscountService
     {
-        private System.Threading.ManualResetEvent locker = new System.Threading.ManualResetEvent(false);
-
         public double Calculate(double totalPrice)
         {
             if (totalPrice > 100)
