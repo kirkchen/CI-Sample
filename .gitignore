@@ -1,1 +1,7 @@
 /TestResults
+/CI-Sample.WebSite/obj
+/CI-Sample.WebSite/bin
+/CI-Sample/bin
+/CI-Sample/obj
+/CI-Sample.Test/bin
+/CI-Sample.Test/obj
