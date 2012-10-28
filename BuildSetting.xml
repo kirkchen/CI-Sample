@@ -46,5 +46,6 @@
 	<EnableSimian>True</EnableSimian>
 	<EnableSourceMonitor>True</EnableSourceMonitor>
 	<EnableJsLint>True</EnableJsLint>
+	<EnableCssLint>True</EnableCssLint>
   </PropertyGroup>
 </Project>
