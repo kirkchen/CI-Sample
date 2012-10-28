@@ -17,6 +17,11 @@
 	<JsCodesExclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Scripts\App\**\*Test.js</JsCodesExclude>
   </PropertyGroup>
   
+  <!--Js Files Path-->
+  <PropertyGroup>
+	<CsssCodesInclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Content</CsssCodesInclude>
+  </PropertyGroup>
+  
   <!--Output Dlls-->
   <ItemGroup>
 	<OutputDlls Include="$(MSBuildStartupDirectory)\CI-Sample\bin\Debug\CI-Sample.dll" />	
