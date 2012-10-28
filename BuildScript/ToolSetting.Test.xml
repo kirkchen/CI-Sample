@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Import Config-->
+	<Import Project="$(MSBuildProjectDirectory)\$(ToolSetting)"/>
+	
+	<Target Name="Build">	
+		<Message Text="MsBuild:"  Importance="high" />
+		<Message Text="$(MsBuildPath)" />		
+		
+		<Message Text="MsTest:" Importance="high"/>
+		<Message Text="$(MsTestPath)" />
+		<Message Text="$(MsTestResultOutputPath)" />
+		<Message Text="$(CodeCoverageResultXmlPath)" />
+		<Message Text="$(CodeCoverageXslPath)" />
+		
+		<Message Text="StyleCop:" Importance="high"/>
+		<Message Text="$(StyleCopOutputPath)" />
+		
+		<Message Text="FxCop:" Importance="high"/>
+		<Message Text="$(FxCopPath)" />
+		<Message Text="$(FxCopRulePath)" />
+		<Message Text="$(FxCopResultOutputPath)" />
+		
+		<Message Text="Simian:" Importance="high"/>
+		<Message Text="$(SimianPath)" />
+		<Message Text="$(SimianFormatter)" />
+		<Message Text="$(SimianThreshold)" />
+		<Message Text="$(SimianLanguage)" />
+		
+		<Message Text="SourceMonitor:" Importance="high"/>
+		<Message Text="$(SourceMonitorPath)" />
+		<Message Text="$(SourceMonitorResultPath)" />
+		<Message Text="$(SourceMonitorCommand)" />
+		<Message Text="$(SourceMonitorSummaryXslPath)" />
+		<Message Text="$(SourceMonitorResultXslPath)" />
+		
+		<Message Text="Tools:" Importance="high"/>
+		<Message Text="$(XslConverterPath)" />
+		<Message Text="$(CodeCoverageConverterPath)" />
+		
+		<Message Text="Finish" />
+	</Target>	
+</Project>

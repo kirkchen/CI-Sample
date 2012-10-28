@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--Import Config-->
+	<Import Project="$(MSBuildStartupDirectory)\$(BuildSetting)"/>	
+	<Import Project="$(MSBuildProjectDirectory)\$(ToolSetting)"/>	
+	
+	<Target Name="Build">
+		<Message Text="INFO: Start Build Project, Enable Build Project: $(EnableBuildProject)"  Importance="high" />
+		<CallTarget Targets="BuildProject"/>
+		
+		<Message Text="INFO: Start UnitTest, Enable UnitTest: $(EnableUnitTest)"  Importance="high" />
+		<CallTarget Targets="UnitTest"/>
+		
+		<Message Text="INFO: Start StyleCop Scan, Enable StyleCop: $(EnableStyleCop)"  Importance="high" />
+		<CallTarget Targets="StyleCop"/>
+		
+		<Message Text="INFO: Start FxCop Scan, Enable FxCop: $(EnableFxCop)"  Importance="high" />
+		<CallTarget Targets="FxCop"/>
+		
+		<Message Text="INFO: Start Simian Scan, Enable Simian: $(EnableSimian)"  Importance="high" />
+		<CallTarget Targets="Simian"/>
+		
+		<Message Text="INFO: Start SourceMonitor Analysis, Enable SourceMonitor: $(EnableSourceMonitor)" Importance="high" />
+		<CallTarget Targets="SourceMonitor"/>
+		
+		<Message Text="INFO: Start SourceMonitor Analysis, Enable JsLint: $(EnableJsLint)" Importance="high" />
+		<CallTarget Targets="JsLint"/>
+		
+		<Message Text="INFO: Start SourceMonitor Analysis, Enable JsLint: $(EnableJsLint)" Importance="high" />
+		<CallTarget Targets="CssLint"/>
+	</Target>
+
+	<Target Name="BuildProject" Condition="'$(EnableBuildProject)' == 'True'">
+		<Exec Command="$(MsBuildPath) /p:Configuration=Debug &quot;/p:Platform=Any CPU&quot; &quot;$(SolutionPath)&quot;"/>
+	</Target>	
+
+	<Target Name="UnitTest" Condition="'$(EnableUnitTest)' == 'True'">  
+		<!--Create TestContainer Parameters-->
+		<CreateItem Include="@(UnitTestDlls->'/testcontainer:%(FullPath)',' ')">
+			<Output TaskParameter="Include" ItemName="UnitTestDllFiles" />
+		</CreateItem>			
+
+		<!-- Run UnitTest-->
+		<Exec Command="&quot;$(MsTestPath)&quot; &quot;/resultsfile:$(MsTestResultOutputPath)&quot; &quot;/testsettings:$(UnitTestSettingPath)&quot; &quot;@(UnitTestDllFiles)&quot;" />
+
+		<!-- Convert CodeCoverage Report To Emma Format -->
+		<Exec Command="$(CodeCoverageConverterPath) &quot;$(MSBuildStartupDirectory)\TestResults&quot; &quot;$(CodeCoverageResultXmlPath)&quot;" />
+		<Exec Command="$(XslConverterPath) &quot;$(CodeCoverageResultXmlPath)&quot; $(CodeCoverageXslPath) -o &quot;$(CodeCoverageResultXmlPath)&quot;" />
+	</Target>	
+	
+	<Target Name="StyleCop"  Condition="'$(EnableStyleCop)' == 'True'">	
+		<!-- Create a collection of files to scan--> 
+		<CreateItem Include="$(SourceCodesInclude)" Exclude="$(SourceCodesExclude)">
+			<Output TaskParameter="Include" ItemName="StyleCopFiles" />
+		</CreateItem>
+		
+		<StyleCopTask
+			ProjectFullPath="$(MSBuildProjectDirectory)"
+			SourceFiles="@(StyleCopFiles)"
+			ForceFullAnalysis="true"			
+			TreatErrorsAsWarnings="true"			
+			OutputFile="$(StyleCopOutputPath)"
+			CacheResults="true" />
+	</Target>
+
+	<Target Name="FxCop" Condition="'$(EnableFxCop)' == 'True'">
+		<!--Create FxCop Parameters-->
+		<CreateItem Include="@(OutputDlls->'/file:%(FullPath)',' ')">
+			<Output TaskParameter="Include" ItemName="OutputDllFiles" />
+		</CreateItem>
+		
+		<Exec Command="&quot;$(FxCopPath)&quot; &quot;@(OutputDllFiles)&quot; &quot;/rule:$(FxCopRulePath)&quot; &quot;/out:$(FxCopResultOutputPath)&quot; /searchgac" />
+	</Target>
+
+	<Target Name="Simian" Condition="'$(EnableSimian)' == 'True'">
+		<Exec Command="&quot;$(SimianPath)&quot; &quot;$(SourceCodesInclude)&quot; &quot;-formatter=$(SimianFormatter)&quot; -threshold=$(SimianThreshold) -language=$(SimianLanguage) &quot;-excludes=$(SourceCodesExclude)&quot;" IgnoreExitCode="true" />
+	</Target>
+
+	<Target Name="SourceMonitor" Condition="'$(EnableSourceMonitor)' == 'True'">
+		<!-- Create the command file -->
+		<WriteLinesToFile File="$(MSBuildStartupDirectory)\SourceMonitorCommands.xml" Lines="$(SourceMonitorCommand)" Overwrite="true" />
+		<!-- Execute SourceMonitor-->
+		<Exec Command="&quot;$(SourceMonitorPath)&quot; /C &quot;$(MSBuildStartupDirectory)\SourceMonitorCommands.xml&quot;" />
+		<!-- Convert SourceMonitor Report To Html-->
+		<Exec Command="$(XslConverterPath) &quot;$(SourceMonitorResultPath)&quot; &quot;$(SourceMonitorSummaryXslPath)&quot; -o &quot;$(MSBuildStartupDirectory)\SourceMonitorSummaryGeneration.xml&quot;" />
+		<Exec Command="$(XslConverterPath) &quot;$(MSBuildStartupDirectory)\SourceMonitorSummaryGeneration.xml&quot; &quot;$(SourceMonitorResultXslPath)&quot; -o &quot;$(MSBuildStartupDirectory)\SourceMonitorResult.html&quot;" />
+	</Target>
+	
+	<Target Name="JsLint" Condition="'$(EnableJsLint)' == 'True'">
+		<!--Create JsLint Parameters-->
+		<CreateItem Include="$(JsCodesInclude)" Exclude="JsCodesExclude">
+			<Output TaskParameter="Include" ItemName="JsCodes" />
+		</CreateItem>
+		
+		<Exec Command="java -jar &quot;$(JsLintPath)&quot; @(JsCodes->'&quot;%(FullPath)&quot;',' ') --report xml > &quot;$(MSBuildStartupDirectory)\$(JsLintOutputPath)&quot;" IgnoreExitCode="true"/>
+	</Target>
+
+	<Target Name="CssLint" Condition="'$(EnableCssLint)' == 'True'">				
+		<Exec Command="&quot;$(CssLintPath)&quot; &quot;$(CsssCodesInclude)&quot; --format=lint-xml > &quot;$(MSBuildStartupDirectory)\$(CssLintOutputPath)&quot;" IgnoreExitCode="true"/>
+	</Target>
+</Project>

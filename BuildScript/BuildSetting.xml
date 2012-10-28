@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Solution Path-->
+  <PropertyGroup>
+    <SolutionPath>$(MSBuildStartupDirectory)\CI-Sample.sln</SolutionPath>        
+  </PropertyGroup>
+  
+  <!--Cs Files Path-->
+  <PropertyGroup>
+	<SourceCodesInclude>$(MSBuildStartupDirectory)\**\*.cs</SourceCodesInclude>
+	<SourceCodesExclude>$(MSBuildStartupDirectory)\**\*Test.cs</SourceCodesExclude>
+  </PropertyGroup>
+  
+  <!--Js Files Path-->
+  <PropertyGroup>
+	<JsCodesInclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Scripts\App\**\*.js</JsCodesInclude>
+	<JsCodesExclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Scripts\App\**\*Test.js</JsCodesExclude>
+  </PropertyGroup>
+  
+  <!--Js Files Path-->
+  <PropertyGroup>
+	<CsssCodesInclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Content</CsssCodesInclude>
+  </PropertyGroup>
+  
+  <!--Output Dlls-->
+  <ItemGroup>
+	<OutputDlls Include="$(MSBuildStartupDirectory)\CI-Sample\bin\Debug\CI-Sample.dll" />	
+  </ItemGroup>
+  
+  <!--UnitTest Setting Path-->
+  <PropertyGroup>
+    <UnitTestSettingPath>$(MSBuildStartupDirectory)\Local.testsettings</UnitTestSettingPath>        
+  </PropertyGroup>
+    
+  <!--Unit Test Dlls-->
+  <ItemGroup>
+	<UnitTestDlls Include="$(MSBuildStartupDirectory)\CI-Sample.Test\bin\Debug\CI-Sample.Test.dll" />
+  </ItemGroup> 
+  
+  <!--Enable Setting-->
+  <PropertyGroup>
+	<EnableBuildProject>True</EnableBuildProject>
+	<EnableUnitTest>True</EnableUnitTest>
+	<EnableStyleCop>True</EnableStyleCop>
+	<EnableFxCop>True</EnableFxCop>
+	<EnableSimian>True</EnableSimian>
+	<EnableSourceMonitor>True</EnableSourceMonitor>
+	<EnableJsLint>True</EnableJsLint>
+	<EnableCssLint>True</EnableCssLint>
+  </PropertyGroup>
+</Project>

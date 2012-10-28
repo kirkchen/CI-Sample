@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--MsBuild Settings-->
+	<PropertyGroup>
+		<MsBuildPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe</MsBuildPath>
+	</PropertyGroup>
+
+	<!--MsTest Settings-->
+	<PropertyGroup>
+		<MsTestPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\MSTest.exe</MsTestPath>
+		<MsTestResultOutputPath>$(MSBuildStartupDirectory)\TestResult.trx</MsTestResultOutputPath>
+		<CodeCoverageResultXmlPath>$(MSBuildStartupDirectory)\CoverageReport.xml</CodeCoverageResultXmlPath>
+		<CodeCoverageXslPath>C:\CI_Tools\MSTestCoverageToEmma.xsl</CodeCoverageXslPath>
+	</PropertyGroup>
+
+	<!--StyleCop Settings-->
+	<UsingTask AssemblyFile="$(MSBuildExtensionsPath)\..\StyleCop 4.7\StyleCop.dll" TaskName="StyleCopTask"/>
+	<PropertyGroup>		
+		<StyleCopOutputPath>$(MSBuildStartupDirectory)\StyleCopReport.xml</StyleCopOutputPath>
+	</PropertyGroup>
+
+	<!--FxCop Settings-->
+	<PropertyGroup>
+		<FxCopPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</FxCopPath>
+		<FxCopRulePath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\Rules</FxCopRulePath>
+		<FxCopResultOutputPath>$(MSBuildStartupDirectory)\FxCopReport.xml</FxCopResultOutputPath>
+	</PropertyGroup>
+
+	<!--Simian Settings-->
+	<PropertyGroup>
+		<SimianPath>C:\Program Files (x86)\Simian\simian-2.3.33.exe</SimianPath>
+		<SimianFormatter>xml:$(MSBuildStartupDirectory)\SimianReport.xml</SimianFormatter>
+		<SimianThreshold>3</SimianThreshold>
+		<SimianLanguage>cs</SimianLanguage>
+	</PropertyGroup>
+
+	<!--SourceMonitor Settings-->
+	<PropertyGroup>
+		<SourceMonitorPath>C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe</SourceMonitorPath>
+		<SourceMonitorResultPath>$(MSBuildStartupDirectory)\SourceMonitorReport.xml</SourceMonitorResultPath>
+		<SourceMonitorCommand>
+			<![CDATA[<sourcemonitor_commands>
+        <write_log>false</write_log>
+        <command>
+          <project_language>CSharp</project_language>
+          <project_file>$(MSBuildStartupDirectory)\SourceMonitorResult.smproj</project_file>
+          <source_directory>$(MSBuildStartupDirectory)\</source_directory>
+          <include_subdirectories>true</include_subdirectories>
+          <parse_utf8_files>True</parse_utf8_files>
+          <export>
+            <export_type>2</export_type>
+            <export_file>$(SourceMonitorResultPath)</export_file>
+          </export>
+        </command>
+      </sourcemonitor_commands>]]>
+		</SourceMonitorCommand>
+		<SourceMonitorSummaryXslPath>C:\CI_Tools\SourceMonitorSummaryGeneration.xsl</SourceMonitorSummaryXslPath>
+		<SourceMonitorResultXslPath>C:\CI_Tools\SourceMonitor.xsl</SourceMonitorResultXslPath>
+	</PropertyGroup>
+	
+	<!--JsLint Settings-->
+	<PropertyGroup>
+		<JsLintPath>C:\Program Files (x86)\Jslint\jslint4java-2.0.2.jar</JsLintPath>
+		<JsLintOutputPath>JsLintReport.xml</JsLintOutputPath>		
+	</PropertyGroup>
+	
+	<!--CsssLint Settings-->
+	<PropertyGroup>
+		<CssLintPath>C:\Users\kirkchen\AppData\Roaming\npm\csslint.cmd</CssLintPath>
+		<CssLintOutputPath>CssLintReport.xml</CssLintOutputPath>		
+	</PropertyGroup>
+
+	<!--Tools Settings-->
+	<PropertyGroup>
+		<XslConverterPath>C:\CI_Tools\msxsl.exe</XslConverterPath>
+		<CodeCoverageConverterPath>C:\CI_Tools\CodeCoverageConverter\CodeCoverageConverter.exe</CodeCoverageConverterPath>
+	</PropertyGroup>
+</Project>
