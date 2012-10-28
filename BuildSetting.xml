@@ -11,6 +11,12 @@
 	<SourceCodesExclude>$(MSBuildStartupDirectory)\**\*Test.cs</SourceCodesExclude>
   </PropertyGroup>
   
+  <!--Js Files Path-->
+  <PropertyGroup>
+	<JsCodesInclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Scripts\App\**\*.js</JsCodesInclude>
+	<JsCodesExclude>$(MSBuildStartupDirectory)\CI-Sample.WebSite\Scripts\App\**\*Test.js</JsCodesExclude>
+  </PropertyGroup>
+  
   <!--Output Dlls-->
   <ItemGroup>
 	<OutputDlls Include="$(MSBuildStartupDirectory)\CI-Sample\bin\Debug\CI-Sample.dll" />	
@@ -34,5 +40,6 @@
 	<EnableFxCop>True</EnableFxCop>
 	<EnableSimian>True</EnableSimian>
 	<EnableSourceMonitor>True</EnableSourceMonitor>
+	<EnableJsLint>True</EnableJsLint>
   </PropertyGroup>
 </Project>
