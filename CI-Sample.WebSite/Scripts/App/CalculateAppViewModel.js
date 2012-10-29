@@ -1,4 +1,5 @@
-﻿(function ($, ko) {
+﻿/*global $,ko */
+(function ($, ko) {
     var appViewModel = {
         TotalPrice: ko.observable(0),
         DiscountPrice: ko.observable(0),
@@ -13,7 +14,7 @@
                 }
             });
         }
-    }
+    };
 
     ko.applyBindings(appViewModel);
 })($, ko);

@@ -26,7 +26,7 @@
 		<Message Text="INFO: Start SourceMonitor Analysis, Enable JsLint: $(EnableJsLint)" Importance="high" />
 		<CallTarget Targets="JsLint"/>
 		
-		<Message Text="INFO: Start SourceMonitor Analysis, Enable JsLint: $(EnableJsLint)" Importance="high" />
+		<Message Text="INFO: Start SourceMonitor Analysis, Enable  CssLint: $(EnableCssLint)" Importance="high" />
 		<CallTarget Targets="CssLint"/>
 	</Target>
 
