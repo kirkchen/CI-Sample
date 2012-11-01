@@ -16,6 +16,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Alpha|Any CPU = Alpha|Any CPU
 		Beta|Any CPU = Beta|Any CPU
+		Debug|Any CPU = Debug|Any CPU
 		Prod|Any CPU = Prod|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -23,18 +24,24 @@ Global
 		{A8EF126F-25B1-4E6C-A142-90C678134326}.Alpha|Any CPU.Build.0 = Alpha|Any CPU
 		{A8EF126F-25B1-4E6C-A142-90C678134326}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
 		{A8EF126F-25B1-4E6C-A142-90C678134326}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{A8EF126F-25B1-4E6C-A142-90C678134326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8EF126F-25B1-4E6C-A142-90C678134326}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EF126F-25B1-4E6C-A142-90C678134326}.Prod|Any CPU.ActiveCfg = Alpha|Any CPU
 		{A8EF126F-25B1-4E6C-A142-90C678134326}.Prod|Any CPU.Build.0 = Alpha|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Alpha|Any CPU.ActiveCfg = Alpha|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Alpha|Any CPU.Build.0 = Alpha|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
 		{9E510CE1-4B31-47C1-B27C-D553EE927C11}.Prod|Any CPU.Build.0 = Prod|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Alpha|Any CPU.ActiveCfg = Alpha|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Alpha|Any CPU.Build.0 = Alpha|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
 		{8F8A737E-035A-4507-8355-6FE1D143AA24}.Prod|Any CPU.Build.0 = Prod|Any CPU
 	EndGlobalSection
