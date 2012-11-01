@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,7 @@ namespace CI_Sample.WebSite.Controllers
 
         public ActionResult Index()
         {
+            this.ViewBag.Enviroment = ConfigurationManager.AppSettings["Enviroment"];
             return View();
         }
 
