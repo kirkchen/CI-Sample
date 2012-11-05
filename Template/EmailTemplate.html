@@ -1,0 +1,100 @@
+<html>
+<body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4" offset="0">
+    <table width="95%" cellpadding="0" cellspacing="0" style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">
+        <tr>
+            <td>
+                <h2><font color="#0000FF">Build Result - ${BUILD_STATUS}</font></h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <b><font color="#0B610B">Build Information:</font></b>
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Project Name - ${PROJECT_NAME}</li>
+                    <li>Build Results - <a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
+                    <li>Project Url - <a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
+                    <li>Build Url - <a href="${BUILD_URL}">${BUILD_URL}</a></li>
+                    <li>SVN Revision - ${SVN_REVISION}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Changes Since Last Successful Build:</font></b>
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>View history changes here: - <a href="${PROJECT_URL}changes">${PROJECT_URL}changes</a></li>
+                </ul>
+                 ${CHANGES_SINCE_LAST_SUCCESS, reverse=true, format="Changes for Build #%n:<br/>%c<br/>", showPaths=true, changesFormat="<pre>[%a]<br/>%m</pre>", pathFormat="&nbsp;&nbsp;&nbsp;&nbsp;%p"}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Failed Test Results:</font></b>
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <pre style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">$FAILED_TESTS</pre>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Test Result Trend:</font></b>                
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="${PROJECT_URL}/test/trend" alt="Test Trend" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Test Coverage Trend:</font></b>
+
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="${PROJECT_URL}/${BUILD_NUMBER}/emma/graph" alt="Test Coverage Trend" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Violations Trend:</font></b>
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="${PROJECT_URL}/${BUILD_NUMBER}/violations/graph" alt="Violations Trend" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b><font color="#0B610B">Build Logs (last 100 lines):</font></b>
+                <hr size="2" width="100%" align="center" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea cols="80" rows="30" readonly="readonly" style="font-family: Courier New">${BUILD_LOG, maxLines=100,escapeHtml=true}</textarea>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
