@@ -16,15 +16,13 @@ namespace CI_Sample.WebSite.Controllers
             this.DiscountService = new PriceDiscountService();
         }
 
-        //
-        // GET: /Calculate/
-
         public ActionResult Index()
         {
             this.ViewBag.Enviroment = ConfigurationManager.AppSettings["Enviroment"];
             return View();
         }
 
+        // FIX: Login Only
         public JsonResult CalculateDiscount(double totalPrice)
         {
             var result = this.DiscountService.Calculate(totalPrice);

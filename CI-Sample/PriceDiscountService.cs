@@ -21,6 +21,7 @@ namespace CI_Sample
             return totalPrice * 0.9d;
         }
 
+        // TODO: Fix Duplicate Function
         public double DuplicateCalculate(double totalPrice)
         {
             if (totalPrice > 100)
