@@ -5,5 +5,7 @@
 /CI-Sample/obj
 /CI-Sample.Test/bin
 /CI-Sample.Test/obj
+/CI-Sample.BDD.Test/bin
+/CI-Sample.BDD.Test/obj
 /CI-Sample.WebSite/*.user
 /CI-S ample.WebSite.Package
