@@ -9,3 +9,5 @@
 /CI-Sample.BDD.Test/obj
 /CI-Sample.WebSite/*.user
 /CI-S ample.WebSite.Package
+packages
+/*.suo
