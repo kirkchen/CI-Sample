@@ -77,7 +77,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CI-Sample\CI-Sample.csproj">
       <Project>{a8ef126f-25b1-4e6c-a142-90c678134326}</Project>
-      <Name>CI Sample</Name>
+      <Name>CI-Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
